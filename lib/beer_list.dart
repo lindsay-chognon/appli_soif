@@ -34,7 +34,8 @@ class _BeerListViewState extends State<BeerListView> {
         final name = item['name'] as String? ?? '';
         final image = item['image_url'] as String? ?? '';
         final description = item['description'] as String? ?? '';
-        final beer = Beer(name, image, description);
+        final abv = item['abv'].toString();
+        final beer = Beer(name, image, description, abv);
         _beers.add(beer);
       }
     });
@@ -50,7 +51,7 @@ class _BeerListViewState extends State<BeerListView> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => FirstScreen(name: _beers[i].name, description: _beers[i].description),
+              builder: (context) => FirstScreen(name: _beers[i].name, description: _beers[i].description, abv: _beers[i].abv, image: _beers[i].image),
             ),
           );
         },
