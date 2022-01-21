@@ -13,24 +13,26 @@ class FirstScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(name),
       ),
-      body: Row(
+      body: SingleChildScrollView(
+      child: Column(
           children: [
         Container(
           padding: const EdgeInsets.all(8.0),
           color: Colors.blueGrey,
           alignment: Alignment.center,
-          width: 200,
           child: Text(name + '\n\n' + description + '\n\n' + abv + '°',
             style: Theme.of(context)
                 .textTheme
                 .subtitle1!
                 .copyWith(color: Colors.white)),
       ),
-        Center(
+        Container(
+          height: 400,
+          padding: const EdgeInsets.all(20.0),
           child: Image.network(image),
         ),
     ]
-      )
+      ),)
     );
   }
 }
